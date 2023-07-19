@@ -1,0 +1,26 @@
+.form_submit {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+
+  width: 400px;
+  border: 1px solid black;
+}
+
+.label_form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input_form {
+  border: 1px solid grey;
+  width: 150px;
+}
+
+.btn_submit {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+}

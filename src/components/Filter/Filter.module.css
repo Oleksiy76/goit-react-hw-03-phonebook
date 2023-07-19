@@ -1,0 +1,10 @@
+.label_filter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input_filter {
+  border: 1px solid grey;
+  width: 150px;
+}
