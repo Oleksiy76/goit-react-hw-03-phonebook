@@ -10,6 +10,20 @@ class App extends React.Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const stringFieldContacts = localStorage.getItem('contacts');
+    const contacts = JSON.parse(stringFieldContacts) ?? [];
+
+    this.setState({ contacts });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      const stringFieldContacts = JSON.stringify(this.state.contacts);
+      localStorage.setItem('contacts', stringFieldContacts);
+    }
+  }
+
   addContactData = data => {
     const isContact = this.state.contacts.find(
       contact => contact.name.toLowerCase() === data.name.toLowerCase()
@@ -50,20 +64,6 @@ class App extends React.Component {
       ),
     }));
   };
-
-  componentDidMount() {
-    const stringFieldContacts = localStorage.getItem('contacts');
-    const contacts = JSON.parse(stringFieldContacts) ?? [];
-
-    this.setState({ contacts });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.contacts.length !== this.state.contacts.length) {
-      const stringFieldContacts = JSON.stringify(this.state.contacts);
-      localStorage.setItem('contacts', stringFieldContacts);
-    }
-  }
 
   render() {
     const { filter } = this.state;
